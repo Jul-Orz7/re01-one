@@ -1,149 +1,187 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>咸鱼个人网页0.1</title>
-		<style type="text/css">
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			a {
-				text-decoration: none;
-			}
-			.clearfix:after {
-				display: block;
-				height: 0;
-				visibility: hidden;
-				clear: both;
-			}
-			.clearfix {
-				*zoom: 1;
-			}
-
-			body {
-				background: url(https://www.helloimg.com/images/2022/10/13/ZgQaTX.jpg) no-repeat;
-				background-size:100% 100%; 
-				background-attachment: fixed;
-			}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咸鱼个人网页0.2</title>
+    <style type="text/css">
+        /* 背景轮播 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input[type="radio"]{
+            display: none;
+        }
+        label{
+            width: 160px;
+            height: 10px;
+            position: fixed;
+            background: gray;
+            bottom: 50px;
+            left: calc((100vw - 160px * 6 + 10px) / 2 + var(--l) * 170px - 170px);
+        }
+        label::before{
+            box-sizing: border-box;
+            border: 2px solid #2980b9;
+            content: "";
+            width: 160px;
+            height: 0px;
+            position: absolute;
+            bottom: 0;
+            opacity: 0.5;
+            transition: 0.3s linear;
+        }
+        label:hover::before{
+            border: 1px solid white;
+            height: 80px;
+            opacity: 1;
+        }
+        .back{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            transition: 0.5s linear;
+            z-index: -1;
+        }
+        label:nth-child(7)::before,#pic1:checked ~ .back{
+            background: url("img/background1.webp");
+            background-size: cover;
+        }
+        label:nth-child(8)::before,#pic2:checked ~ .back{
+            background: url("img/background2.webp");
+            background-size: cover;
+        }
+        label:nth-child(9)::before,#pic3:checked ~ .back{
+            background: url("img/background3.webp");
+            background-size: cover;
+        }
+        label:nth-child(10)::before,#pic4:checked ~ .back{
+            background: url("img/background4.webp");
+            background-size: cover;
+        }
+        label:nth-child(11)::before,#pic5:checked ~ .back{
+            background: url("img/background5.webp");
+            background-size: cover;
+        }
+        label:nth-child(12)::before,#pic6:checked ~ .back{
+            background: url("img/background6.webp");
+            background-size: cover;
+        }
+        /* 主题内容 */
 			.content {
+                /* margin-top: 500px; */
 				width: 900px;
 				height: 500px;
-				margin: 200px auto 0 auto;
-				border-radius: 10px;
-				background-color: rgba(236, 236, 236, 0.59);
+				margin: 120px auto 0 auto;
+				border-radius: 15px;
+				background-color: rgba(150, 150, 150, 0.59);
 				transition: all 1.0s;
-				/*box-shadow: 0px 0px 20px rgba(0,0,0,0.3);*/
 			}
-
 			.content img {
 				float: left;
 				width: 200px;
 				height: 200px;
 				margin: 150px 0 0 80px;
+				border: 1.5px solid rgb(160, 186, 226);
 				border-radius: 100px;
-
 			}
-
-			.content:hover {
-				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.52);
-			}
-
 			.content_r {
 				float: right;
 				width: 500px;
 				margin: 80px 60px 0 0;
-				/*	background-color: pink;*/
 			}
-
 			.content_l {
 				float: left;
 				width: 100%;
 				text-align: center;
 			}
-
-			.content_l h5 {
-
-				font-size: 17px;
-			}
-
 			.cc {
-				margin-top: 10px;
-				color: #1F2023;
+				margin-top: 15px;
 				font-size: 18px;
 			}
-
-			.color_1 {
-				color: #4855EC;
-				font-size: 18px;
-			}
-
-			.deeppink {
-				color: rgb(89, 241, 89);
-			}
-
-			.link {
-				margin-top: 30px;
-			}
-
 			.link a {
 				display: block;
 				float: left;
 				width: 120px;
 				height: 45px;
-				margin: 5px 5px 0 0;
-				color: #fff;
+				margin: 50px 5px 0 0;
+				color: rgb(255, 255, 255);
 				line-height: 45px;
 				transition: all 0.8s;
+				text-decoration: none;
+				border-radius: 10px;
+				
 			}
-
-			.link a:hover {
-				background-color: rgba(0, 201, 243, 0.35);
+			.color_1 {
+				color: hsla(34, 84%, 50%, 0.822);
+				font-size: 18px;
 			}
-
+			.green {
+				color: rgb(89, 241, 89);
+				font-size: 15px;
+			}
 			.red {
 				background-color: rgb(240, 13, 13);
 			}
 
-			.dodgerblue {
-				background-color: rgb(250, 178, 23);
-			}
-
-			.magenta {
-				background-color: rgb(241, 110, 241);
-			}
-
 			.orange {
-				background-color: rgb(19, 186, 236);
+				background-color: rgb(244, 170, 5);
 			}
-		</style>
-	</head>
 
-	<body>
-		<div class="content">
-			<img src="https://www.helloimg.com/images/2022/10/13/Zgwuxo.md.jpg" alt="咸鱼" width="80px" height="80px" ;>
-			<div class="content_r clearfix">
-				<div class="content_l clearfix">
-					<h2>Hi~ 我是咸鱼， Welcome here !</h2>
-					<p class="cc">欢迎来到我的主页,学习RE01元岛~</p>
-					<p class="cc">偶尔吃吃美食,摆烂太久了决定硬啃编程，一起来见证元宇宙吧！！</p>
-					<br>
-					<p class="color_1">I am an ambitious salted fish!</p>
-					<p class="color_1">我是一位有野心的咸鱼!</p>
-					<br>
-					<p class="deeppink">只要路是对的，就不怕路远。</p>
-					<p class="deeppink">As long as the road is right, you are not afraid of the distance.</p>
-					<div class="link">
-						<a href="https://jul-orz7.github.io/re01-one/xiaoyihao" class="dodgerblue" target="_blank">个人官网</a>
-						<a href="http://www.yinghuacd.com/" class="magenta" target="_blank">樱花动漫</a>
-						<a href="https://music.163.com/" class="red" target="_blank">网易云音乐</a>
-						<a href="https://www.bilibili.com/ "class="orange " target="_blank">哔哩哔哩</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+			.pink {
+				background-color: rgb(224, 108, 290);
+			}
 
+			.blue {
+				background-color: rgb(47, 188, 294);
+			}
+    </style>
+</head>
+<body>
+    <input type="radio" id="pic1" name="pic" checked>
+    <input type="radio" id="pic2" name="pic">
+    <input type="radio" id="pic3" name="pic">
+    <input type="radio" id="pic4" name="pic">
+    <input type="radio" id="pic5" name="pic">
+    <input type="radio" id="pic6" name="pic">
+    <label for="pic1" style="--l:1"></label>
+    <label for="pic2" style="--l:2"></label>
+    <label for="pic3" style="--l:3"></label>
+    <label for="pic4" style="--l:4"></label>
+    <label for="pic5" style="--l:5"></label>
+    <label for="pic6" style="--l:6"></label>
+
+    <div class="back">
+    <div class="content">
+        <img src="https://www.helloimg.com/images/2022/10/13/Zgwuxo.md.jpg" alt="咸鱼" width="80px" height="80px" ;>
+        <div class="content_r">
+            
+            <div class="content_l">
+                <h2>Hi~ 我是咸鱼， Welcome here !</h2><br><hr>
+                <div class="cc">
+                    <p>欢迎来到我的主页,学习RE01元岛~</p>
+                    <p>摆烂太久了决定硬啃编程，一起来见证元宇宙吧！！</p>
+                </div><br>
+                <div class="color_1">
+                    <div>Eat gourmet fish once in a while</div>
+                    <div>偶尔吃吃美食，咸不拉叽的鱼</div>
+                </div><br>
+                <div class="green">
+                    <div>只要路是对的，就不怕路远。</div>
+                    <div>As long as the road is right, you are not afraid of the distance.</div>
+                </div>
+                <div class="link">
+                    <a href="https://music.163.com/" class="red" target="_blank">网易云音乐</a>
+                    <a href="https://www.bilibili.com/ "class="blue " target="_blank">哔哩哔哩</a>
+                    <a href="http://www.yinghuacd.com/" class="pink" target="_blank">樱花动漫</a>
+                    <a href="https://jul-orz7.github.io/re01-one/xiaoyihao" class="orange" target="_blank" >元岛学习</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
 </html>
-
