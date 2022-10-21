@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0,user-scalable=yes">
-    <meta name="xiaoyihao" content="肖易豪，咸鱼">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0,user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width,height=device-width,inital-scale=0,user-scalable=no;" /> -->
     <title>咸鱼个人网页0.2</title>
+    <meta name="xiaoyihao" content="肖易豪，咸鱼">
     <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 
     <style type="text/css">
@@ -13,6 +15,7 @@
         *{
             margin: 0;
             padding: 0;
+            
         }
         input[type="radio"]{
             display: none;
@@ -52,30 +55,55 @@
         label:nth-child(7)::before,#pic1:checked ~ .back{
             background: url("img/background5.webp");
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+
+
         }
         label:nth-child(8)::before,#pic2:checked ~ .back{
             background: url("img/background6.webp");
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+
+
         }
         label:nth-child(9)::before,#pic3:checked ~ .back{
             background: url("img/background2.webp");
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+
+
         }
         label:nth-child(10)::before,#pic4:checked ~ .back{
             background: url("img/background3.webp");
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+
+
         }
         label:nth-child(11)::before,#pic5:checked ~ .back{
             background: url("img/background1.webp");
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+
+
         }
         label:nth-child(12)::before,#pic6:checked ~ .back{
             background: url("img/background9.webp");
             background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            
+
         }
         /* 主题内容 */
 			.content {
                 /* margin-top: 500px; */
+                
 				width: 900px;
 				height: 500px;
 				margin: 120px auto 0 auto;
@@ -141,6 +169,16 @@
 			.blue {
 				background-color: rgb(47, 188, 294);
 			}
+        @media(max-width:670px) {
+            .content {
+                display: none;
+			}
+            .content_r {
+				float: right;
+				width: 690px;
+				margin: 80px 60px 0 0;
+			}
+        }
     </style>
 </head>
 <body>
